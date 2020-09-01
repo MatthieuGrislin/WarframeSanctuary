@@ -1,0 +1,91 @@
+body {
+    background-image: url('../img/background-wfs.png');
+    color: #eaeff0;
+}
+table td{
+    width: auto;
+    height: 300px;
+}
+#banner {
+    background-color: #011627;
+}
+#banner h1 {
+    color: #AFD2E9;
+    text-align: center;
+    font-size: 100px;
+}
+.row {
+    margin: 0;
+    padding: 0;
+}
+.dropdown-item{
+    color: white;
+}
+.nav-link {
+    color: white;
+}  
+#connexionText{
+    color: black;
+    margin-top: 5px;
+}
+#menu{
+    padding: 0;
+}
+#menu li a {
+    color: white;
+}
+.table{
+    color: white;
+}
+#warframeList{
+    text-align: center;
+    margin-top: 30px ;
+    margin-bottom: 30px;
+}
+.figcaption{
+    color: white;
+}
+.showInfos{
+    border-color: white;
+}
+#footer{
+    color: black;
+    background-color: #011627;
+}
+.modal-header{
+    background-color: #AFD2E9 !important;
+}
+.ctn{
+    border: 1px solid white;
+    border-radius: 25px;
+    background-color: rgb(46,46,46,0.85);
+  }
+hr{
+    background-color: white;
+    width: 75%;
+}
+/* Small screen */
+@media screen and (max-width: 768px){
+    #banner h1 {
+        font-size: 30px;
+    }  
+}
+/* Medium screen */
+@media screen and (min-width: 769px) and (max-width: 991px) {
+    #banner h1 {
+        font-size: 45px;
+    }
+}
+/* Large screen */
+@media screen and (min-width: 992px) {
+    #menu li{
+        padding-left: 15px;
+        font-size: 20px;
+    }
+    #connexionText{
+        margin-left: 25px;
+    }
+    #search{
+        margin-left: 10px;
+    }
+}
