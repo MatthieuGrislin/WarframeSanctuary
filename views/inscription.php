@@ -1,6 +1,7 @@
 <?php 
     //J'inclus mon header
     include_once 'header.php';
+    include '../models/database.php';
     //J'inclus mon controller
     require_once '../controllers/inscriptionController.php'; 
 ?>

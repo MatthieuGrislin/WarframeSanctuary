@@ -1,8 +1,9 @@
 <!-- J'inclus mon header -->
 <?php
-include 'header.php';
+include '../models/database.php';
 include '../models/itemsModel.php';
 include '../controllers/itemsController.php';
+include 'header.php';
 ?>
     <h1 id="warframeList">Liste des <?= !empty($showItems) ? $showItems[0]->catName : '' ?></h1>
     <div class="container my-5 ctn">

@@ -1,5 +1,6 @@
 <?php 
 // J'inclus mon controller
+include '../models/database.php';
 include '../controllers/connexionController.php';
 //J'inclus mon header
 include_once 'header.php';
