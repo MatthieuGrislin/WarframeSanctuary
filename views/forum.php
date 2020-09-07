@@ -1,5 +1,6 @@
 <!-- J'inclus mon header -->
-<?php 
+<?php
+include '../config.php'; 
 include '../models/database.php';
 include '../models/forumModel.php';
 include '../controllers/forumController.php';

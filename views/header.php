@@ -90,7 +90,7 @@ include 'tables.php';
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? '' : '../' ?>views/archwingVehicule" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? '' : '../' ?>views/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Discussions
                             </a>
                             <ul class="dropdown-menu bg-dark">
@@ -107,6 +107,20 @@ include 'tables.php';
                         <li id="connexionText">
                             <?php include 'inscriptionAndConnexion.php' ?>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mon compte
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                <?php if(!isset($_SESSION['profile'])){ //Si l'utilisateur n'est pas connecté ?>
+                                    <a class="dropdown-item" href="register.php">Inscription</a> 
+                                    <a class="dropdown-item" href="login.php">Connexion</a>
+                                <?php }else{ //Si la personne est connectée?>
+                                    <a class="dropdown-item" href="index.php?action=disconnect">Mes informations</a> 
+                                    <a class="dropdown-item" href="index.php?action=disconnect">Déconnexion</a> 
+                                <?php } ?>         
+                            </div>
+                        </li> 
                     </ul>
                 </div>
             </nav>

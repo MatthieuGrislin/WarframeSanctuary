@@ -16,11 +16,11 @@
                         <div class="row">
                             <div class="col-6 border-right text-center">
                                 <p class="my-2">Si tu veux t'inscrire c'est ici</p>
-                                <a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>inscription.php" class="btn my-3 btn-secondary">Inscription</a>
+                                <a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>register.php" class="btn my-3 btn-secondary">Inscription</a>
                             </div>
                             <div class="col-6 text-center">
                                 <p class="my-2">Si tu veux te connecter c'est ici</p>
-                                <a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>connexion.php" class="btn my-3 btn-secondary">Connexion</a>
+                                <a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>login.php" class="btn my-3 btn-secondary">Connexion</a>
                             </div>
                         </div>
                     </div>
