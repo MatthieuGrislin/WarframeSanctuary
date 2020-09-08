@@ -104,23 +104,23 @@ include 'tables.php';
                                 <?php } ?>
                             </ul>
                         </li>
-                        <li id="connexionText">
-                            <?php include 'inscriptionAndConnexion.php' ?>
-                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="monCompte" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Mon compte
                             </a>
-                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu bg-dark" aria-labelledby="monCompte">
                                 <?php if(!isset($_SESSION['profile'])){ //Si l'utilisateur n'est pas connecté ?>
-                                    <a class="dropdown-item" href="register.php">Inscription</a> 
-                                    <a class="dropdown-item" href="login.php">Connexion</a>
+                                    <a class="dropdown-item" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>register.php">Inscription</a> 
+                                    <a class="dropdown-item" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>login.php">Connexion</a>
                                 <?php }else{ //Si la personne est connectée?>
-                                    <a class="dropdown-item" href="index.php?action=disconnect">Mes informations</a> 
-                                    <a class="dropdown-item" href="index.php?action=disconnect">Déconnexion</a> 
+                                    <a class="dropdown-item" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>infos.php">Mes informations</a> 
+                                    <a class="dropdown-item" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? '' : '../' ?>index.php?action=disconnect">Déconnexion</a> 
                                 <?php } ?>         
                             </div>
-                        </li> 
+                        </li>
+                        <li class="mt-2 pl-5">
+                            <?= isset($_SESSION['profile']) ? 'Bienvenue ' . $_SESSION['profile']['username']: ''?>
+                        </li>
                     </ul>
                 </div>
             </nav>

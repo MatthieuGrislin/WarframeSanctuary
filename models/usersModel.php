@@ -93,7 +93,7 @@ class users{
  */
     public function getUserProfile(){
         $getUserProfile = $this->db->prepare(
-            'SELECT `id`, `username`
+            'SELECT `id`, `username`, `mail`
             FROM ' . $this->table 
             . ' WHERE `mail` = :mail'
         );
@@ -102,4 +102,22 @@ class users{
         return $getUserProfile->fetch(PDO::FETCH_OBJ);
     }
 
+
+/**
+ * Méthode permettant de changer le mot de passe d'un utilisateur 
+ * 
+ */
+    public function changeUserPassword(){
+        $changeUserPassword = $this->db->prepare(
+            'UPDATE 
+                `m3s4L0v3_users`
+            SET
+                `password` = :pass
+            WHERE    
+                `id` = :id
+            ');
+        $changeUserPassword->bindValue(':pass', $this->password, PDO::PARAM_STR);
+        $changeUserPassword->bindValue(':id', $this->password, PDO::PARAM_INT);
+        return $changeUserPassword->execute(); 
+    }
 }

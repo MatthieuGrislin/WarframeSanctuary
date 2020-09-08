@@ -28,8 +28,9 @@ if(isset($_POST['login'])){
             //On met en session ses informations
             $_SESSION['profile']['id'] = $userProfil->id;
             $_SESSION['profile']['username'] = $userProfil->username;
+            $_SESSION['profile']['mail'] = $userProfil->mail;
             //On redirige vers une autre page.
-            header('location:index.php');
+            header('location:../index.php');
             exit();
        }else{
            $formErrors['password'] = $formErrors['mail'] = LOGIN_ERROR;

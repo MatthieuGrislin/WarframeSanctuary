@@ -11,3 +11,4 @@ define('PASSWORD_ERROR_EMPTY','Le mot de passe ne doit pas être vide.');
 define('PASSWORDVERIFY_ERROR_EMPTY','Le mot de passe (confirmation) ne doit pas être vide.');
 define('PASSWORD_ERROR_NOTEQUAL','Les mots de passe ne sont pas identiques');
 define('LOGIN_ERROR','Le mot de passe et/ou l\'adresse mail est incorrecte');
+define('NEW_PASSWORD_ERROR', 'Le nouveau mot de passe n\'est pas valide');

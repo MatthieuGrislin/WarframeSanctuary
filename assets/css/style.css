@@ -34,6 +34,9 @@ table td{
 #menu li a {
     color: white;
 }
+#menu li a:hover{
+    color: rgb(46,46,46,0.85);
+}
 .table{
     color: white;
 }
