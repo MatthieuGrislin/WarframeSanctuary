@@ -4,18 +4,25 @@ include '../config.php';
 include '../models/database.php';
 include_once '../models/usersModel.php';
 include '../controllers/loginController.php';
+include 'deleteMyInfos.php';
 include_once 'header.php';
 ?>
     <div class="container my-5">
         <div class="row">
-            <div class="col-3 ctn mr-4">
+            <div class="col-4 ctn mr-4">
                 <div class="row">
-                    <a href="infos.php" class="col-12 text-white mt-5 mb-3">Mes informations</a>
-                    <a href="modifyUserPassword.php" class="col-12 text-white my-3">Modifier mon mot de passe</a>
-                    <a href="deleteMyInfos.php" class="col-12 text-white my-3 mb-4">Supprimer mon compte</a>
+                    <ul>
+                        <li class="col-12 mt-5 mb-3"><a href="infos.php" class="text-white">Mes informations</a></li>
+                        <li class="col-12 mb-3"><a href="modifyUserPassword.php" class="text-white">Modifier mon mot de passe</a></li>
+                        <li class="col-12 mb-5">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                                Supprimer mon compte
+                            </button>  
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-8 ctn">
+            <div class="col-7 ctn">
                 <h1 class="text-center mt-4">Mes informations</h1>
                 <p class="mt-4">Votre nom d'utilisateur est : <?= $_SESSION['profile']['username'] ?></p>
                 <p>Votre mail est : <?= $_SESSION['profile']['mail'] ?>

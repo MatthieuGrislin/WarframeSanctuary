@@ -86,27 +86,27 @@ class users{
             return '';
         }
     }
-/**
- * Méthode permettant de récupérer les différentes infos d'un utilisateur
- * 
- * @return object
- */
+
+    /**
+     * Méthode permettant de récupérer les différentes infos d'un utilisateur
+     * 
+     * @return object
+     */
     public function getUserProfile(){
         $getUserProfile = $this->db->prepare(
             'SELECT `id`, `username`, `mail`
-            FROM ' . $this->table 
-            . ' WHERE `mail` = :mail'
+                FROM ' . $this->table 
+                . ' WHERE `mail` = :mail'
         );
         $getUserProfile->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $getUserProfile->execute();
         return $getUserProfile->fetch(PDO::FETCH_OBJ);
     }
 
-
-/**
- * Méthode permettant de changer le mot de passe d'un utilisateur 
- * 
- */
+    /**
+     * Méthode permettant de changer le mot de passe d'un utilisateur 
+     * 
+     */
     public function changeUserPassword(){
         $changeUserPassword = $this->db->prepare(
             'UPDATE 
@@ -117,7 +117,21 @@ class users{
                 `id` = :id
             ');
         $changeUserPassword->bindValue(':pass', $this->password, PDO::PARAM_STR);
-        $changeUserPassword->bindValue(':id', $this->password, PDO::PARAM_INT);
-        return $changeUserPassword->execute(); 
+        $changeUserPassword->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $changeUserPassword->execute();
+    }
+
+    /**
+     * Méthode permettant de supprimer un utilisateur
+     */
+    public function deleteUser(){
+        $deleteUser = $this->db->prepare(
+            'DELETE
+            FROM ' . $this->table . '
+            WHERE 
+                `id` = :id
+        ');
+        $deleteUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $deleteUser->execute();    
     }
 }

@@ -6,40 +6,29 @@ if(isset($_POST['modifyPassword'])){
     /**
      * Cette variable sert à savoir si les vérifications du mot de passe et de sa confirmation se sont déroulés avec succès
      */
+    $isPasswordOk = true;
     if(empty($_POST['oldPassword'])){
         $formErrors['oldPassword'] = PASSWORD_ERROR_EMPTY;
+        $isPasswordOk = false;
     }
     if(empty($_POST['newPassword'])){
         $formErrors['newPassword'] = NEW_PASSWORD_ERROR;
+        $isPasswordOk = false;
     }
     if(empty($_POST['confirmNewPassword'])){
-        $formErrors['confirmNewPassword'] = PASSWORDVERIFY_ERROR_EMPTY;
+        $formErrors['confirmNewPassword'] = CONFIRM_NEW_PASSWORD_ERROR;
+        $isPasswordOk = false;
     }
     //Si les vérifications des mots de passe sont ok
     if($isPasswordOk){
-        if($_POST['passwordVerify'] == $_POST['password']){
+        if($_POST['confirmNewPassword'] == $_POST['newPassword']){
+            
+            $user->id = $_SESSION['profile']['id'];
             //On hash le mot de passe avec la méthode de PHP
-            $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $user->password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+            $user->changeUserPassword();
         }else{
-            $formErrors['password'] = $formErrors['passwordVerify'] = PASSWORD_ERROR_NOTEQUAL;
-        }
-    }
-
-    if(empty($formErrors)){
-        $isOk = true;
-        //On vérifie si le pseudo est libre
-        if($user->checkUserUnavailabilityByFieldName(['username'])){
-            $formErrors['username'] = USERNAME_ERROR_ALREADYUSED;
-            $isOk = false;
-        }
-        //On vérifie si le mail est libre
-        if($user->checkUserUnavailabilityByFieldName(['mail'])){
-            $formErrors['mail'] = MAIL_ERROR_ALREADYUSED;
-            $isOk = false;
-        }
-        //Si c'est bon on ajoute l'utilisateur
-        if($isOk){
-            $user->addUser();
+            $formErrors['password'] = $formErrors['confirmNewPassword'] = PASSWORD_ERROR_NOTEQUAL;
         }
     }
 }
