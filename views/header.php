@@ -41,7 +41,6 @@ include 'tables.php';
                             </a>
                             <ul class="dropdown-menu bg-dark">
                             <!-- Appelle le tableau associatif -->
-                            
                                 <?php foreach ($weapons as $weaponTitle => $weaponPage){
                                     ?><li class="nav-item dropdown-submenu">
                                         <a class="nav-link" href="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/') . $weaponPage ?>" role="button">

@@ -25,6 +25,7 @@ include 'header.php';
                     <p class="h2 mb-4">Acquisition</p>
                     <p><?= $showInfosItems->acquisition ?></p>
                 </div>
+            <?php if(in_array($itemsCategory, $production)){ ?>
                 <hr class="my-5">
                 <div class="text-center">
                     <p class="h2 mb-4">Production</p>
@@ -32,6 +33,7 @@ include 'header.php';
                     <p>Si vous ne connaissez pas une ou plusieurs ressource(s), je vous invite à consulter notre section dédiée à celles-ci.</p>
                     <img class="img-fluid my-4" src="<?= $showInfosItems->production ?>" alt="production de <?= $showInfosItems->name ?>" />
                 </div>
+            <?php } ?>
             <?php if(in_array($itemsCategory, $catName)){ ?>
                 <hr class="my-5">
                 <div class="text-center">

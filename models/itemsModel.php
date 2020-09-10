@@ -22,7 +22,9 @@ class items
         //On recupére l'instance de PDO de la classe DataBase avec la méthode STATIC getInstance
             $this->db = database::getInstance();
         }
-
+    /**
+     * Méthode permettant de récupérer les items via les catégories
+     */
     public function getItemsByCategory(){
         $itemsQuery = $this->db->prepare(
         'SELECT 
@@ -43,7 +45,9 @@ class items
         $itemsQuery->execute();
         return $itemsQuery->fetchAll(PDO::FETCH_OBJ);
     }
-
+    /**
+     * Méthode permettant de récupérer les noms des catégories
+     */
     public function getCategoryById(){
         $itemsQuery = $this->db->prepare(
         'SELECT 
@@ -61,7 +65,9 @@ class items
         $itemsQuery->execute();
         return $itemsQuery->fetch(PDO::FETCH_OBJ)->catName;
     }
-
+    /**
+     * Méthode permettant de récupérer les informations des items
+     */
     public function getInfosItems(){
         $itemsQuery = $this->db->prepare(
         'SELECT 
@@ -84,7 +90,9 @@ class items
         $itemsQuery->execute();
         return $itemsQuery->fetch(PDO::FETCH_OBJ);
     }
-
+    /**
+     * Méthode vérifiant si l'item existe
+     */
     public function checkItemsExistsById(){
         $itemsQuery = $this->db->prepare(
             'SELECT 
@@ -99,7 +107,9 @@ class items
             $data = $itemsQuery->fetch(PDO::FETCH_OBJ);
             return $data->isItemsExists;
     }
-
+    /**
+     * Méthode vérifiant si la catégorie existe
+     */
     public function checkCategoryExistsById(){
         $itemsQuery = $this->db->prepare(
             'SELECT 

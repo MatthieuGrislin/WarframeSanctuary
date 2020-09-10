@@ -1,8 +1,8 @@
-<!-- J'inclus mon header -->
 <?php
 session_start();
 include 'controllers/indexController.php';
-include 'views/header.php' ?>
+include 'views/header.php'; ?>
+
     <!-- Début du texte d'accueil -->
     <div class="container text-center mb-5 ctn mt-5">
         <h1 class="mt-5 mb-5">Bienvenue sur Warframe Sanctuary</h1>

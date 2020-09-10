@@ -58,6 +58,9 @@ if(isset($_POST['register'])){
         //Si c'est bon on ajoute l'utilisateur
         if($isOk){
             $user->addUser();
+            $messageSuccess = 'Votre inscription à bien été prise en compte' ;
+        }else{
+            $messageFail = 'Une erreur est survenu lors de votre inscription';
         }
     }
 }

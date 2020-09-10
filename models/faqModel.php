@@ -14,7 +14,9 @@ class faq
         //On recupére l'instance de PDO de la classe DataBase avec la méthode STATIC getInstance
             $this->db = database::getInstance();
         }
-
+/**
+ * Méthode permettant d'afficher les questions/réponses de la faq
+ */
     public function getInfosFaq(){
         $faqQuery = $this->db->query(
         'SELECT

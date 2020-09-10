@@ -14,21 +14,20 @@ class forumSubCat
         //On recupére l'instance de PDO de la classe DataBase avec la méthode STATIC getInstance
             $this->db = database::getInstance();
         }
-    
-    public function getCatAndSubcatNameById(){
+    /**
+     * Méthode permettant de récupérer les noms des sous-catégories
+     */
+    public function getsubcatNameById(){
         $nameQuery = $this->db->prepare(
         'SELECT 
-            `cat`.`name` AS `catName`
-            , `subcat`.`name` AS `subCatName`
+            `subcat`.`name` AS `subCatName`
         FROM 
             `m3s4L0v3_forumSubCategories` AS `subcat`
-        INNER JOIN
-            `m3s4L0v3_forumCategories` AS `cat` ON `id_m3s4L0v3_forumCategories` = `cat`.`id`
         WHERE
-            `cat`.`id` = :id_m3s4pL0v3_forumCategories
+            `subcat`.`id` = :id
         ');
-        $nameQuery->bindValue(':id_m3s4pL0v3_forumCategories', $this->id_m3s4pL0v3_forumCategories, PDO::PARAM_INT);
+        $nameQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
         $nameQuery->execute();
-        return $nameQuery->fetchAll(PDO::FETCH_OBJ);
+        return $nameQuery->fetch(PDO::FETCH_OBJ);
     }
 }

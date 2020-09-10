@@ -7,6 +7,7 @@ include '../lang/FR_FR.php';
 include_once '../controllers/loginController.php';
 include 'header.php';
 ?>
+<h1 class="m-5 text-center">Connexion</h1>
 <div class="container ctn my-5">
     <form action="#" method="POST" class="my-5">
         <div class="form-group">

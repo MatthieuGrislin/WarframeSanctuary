@@ -58,10 +58,13 @@ table td{
 .modal-header{
     background-color: #011627 !important;
 }
+.modal-body{
+    background-color: #AFD2E9 !important;
+}
 .ctn{
     border: 1px solid white;
     border-radius: 25px;
-    background-color: rgb(46,46,46,0.85);
+    background-color: rgb(46,46,46,0.97);
   }
 hr{
     background-color: white;
@@ -70,8 +73,7 @@ hr{
 .forumCategory{
     background-color: black;
     border-radius: 25px;
-    width: 20%;
-    text-align: center;
+    width: 50%;
 }
 .bgAForum{
     background-color: rgb(46,46,46,1);

@@ -3,7 +3,9 @@ $formErrors = [];
 //Vérification du formulaire de connexion
 if(isset($_POST['login'])){
     $user = new users();
+    // si le champ mail n'est pas vide
     if(!empty($_POST['mail'])){
+        // et qu'il correspond au filtre
         if(filter_var($_POST['mail'],FILTER_VALIDATE_EMAIL)){
             //J'hydrate mon instance d'objet user
             $user->mail = htmlspecialchars($_POST['mail']);
