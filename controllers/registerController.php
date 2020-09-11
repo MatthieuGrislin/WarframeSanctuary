@@ -12,25 +12,25 @@ if(isset($_POST['register'])){
             //J'hydrate mon instance d'objet user
             $user->mail = htmlspecialchars($_POST['mail']);
         }else{
-            $formErrors['mail'] = MAIL_ERROR_WRONG;
+            $formErrors['mail'] = 'L\'adresse mail doit être de la bonne forme.';
         }
     }else{
-        $formErrors['mail'] = MAIL_ERROR_EMPTY;
+        $formErrors['mail'] = 'L\'adresse mail ne doit pas être vide.';
     }
 
     if(!empty($_POST['username'])){
         //J'hydrate mon instance d'objet user
         $user->username = htmlspecialchars($_POST['username']);
     }else{
-        $formErrors['username'] = USERNAME_ERROR_EMPTY;
+        $formErrors['username'] = 'Le nom d\'utilisateur ne doit pas être vide.';
     }
 
     if(empty($_POST['password'])){
-        $formErrors['password'] = PASSWORD_ERROR_EMPTY;
+        $formErrors['password'] = 'Le mot de passe ne doit pas être vide.';
         $isPasswordOk = false;
     }
     if(empty($_POST['passwordVerify'])){
-        $formErrors['passwordVerify'] = PASSWORDVERIFY_ERROR_EMPTY;
+        $formErrors['passwordVerify'] = 'La confirmation du mot de passe ne doit pas être vide.';
         $isPasswordOk = false;
     }
     //Si les vérifications des mots de passe sont ok
@@ -39,7 +39,7 @@ if(isset($_POST['register'])){
             //On hash le mot de passe avec la méthode de PHP
             $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         }else{
-            $formErrors['password'] = $formErrors['passwordVerify'] = PASSWORD_ERROR_NOTEQUAL;
+            $formErrors['password'] = $formErrors['passwordVerify'] = 'Les mots de passe ne sont pas identiques';
         }
     }
 
@@ -47,12 +47,12 @@ if(isset($_POST['register'])){
         $isOk = true;
         //On vérifie si le pseudo est libre
         if($user->checkUserUnavailabilityByFieldName(['username'])){
-            $formErrors['username'] = USERNAME_ERROR_ALREADYUSED;
+            $formErrors['username'] = 'Le nom d\'utilisateur est déjà utilisé.';
             $isOk = false;
         }
         //On vérifie si le mail est libre
         if($user->checkUserUnavailabilityByFieldName(['mail'])){
-            $formErrors['mail'] = MAIL_ERROR_ALREADYUSED;
+            $formErrors['mail'] = 'L\'adresse mail est déjà utilisée.';
             $isOk = false;
         }
         //Si c'est bon on ajoute l'utilisateur

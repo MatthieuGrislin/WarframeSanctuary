@@ -1,5 +1,4 @@
-<?php
-include '../lang/FR_FR.php'; 
+<?php 
 include '../controllers/deleteMyInfosController.php'; ?>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

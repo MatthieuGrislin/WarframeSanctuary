@@ -7,8 +7,15 @@ include '../controllers/modifyPasswordController.php';
 include 'deleteMyInfos.php';
 include_once 'header.php';
 ?>
+    <!--Si l'utilisateur est connecté -->
     <?php if(isset($_SESSION['profile'])){ ?>
     <h1 class="text-center mt-5">Modifier votre mot de passe</h1>
+        <!--On affiche un message sous forme d'alerte si la modification de mot de passe à été prise en compte -->
+        <?php if(isset($messageSuccess)){ ?>
+            <div class="alert alert-success text-center" role="alert">
+            <?= $messageSuccess ?>
+            </div>
+        <?php } ?>
     <div class="container my-5">
         <div class="row">
             <div class="col-3 ctn mr-4">
@@ -26,16 +33,7 @@ include_once 'header.php';
             </div>
             <div class="col-8 ctn">
                 <form action="modifyUserPassword.php" method=POST>
-                    <div>
-                        <label for="oldPassword" class="mt-5">Mot de passe actuel :</label>
-                        <input type="password" class="form-control" id="oldPassword" aria-describedby="passwordHelp" name="oldPassword" />
-                        <?php if(isset($formErrors['oldPassword'])){ ?>
-                            <p class="text-danger"><?= $formErrors['oldPassword'] ?></p>
-                        <?php }else{ ?>
-                            <small id="passwordHelp" class="form-text text-muted mb-4">Merci de renseigner votre mot de passe actuel</small>
-                            <?php } ?> 
-                    </div>
-                    <div>
+                    <div class="mt-5">
                         <label for="newPassword">Nouveau mot de passe :</label>
                         <input type="password" class="form-control" id="newPassword" aria-describedby="passwordHelp" name="newPassword" />
                         <?php if(isset($formErrors['newPassword'])){ ?>
@@ -68,11 +66,11 @@ include_once 'header.php';
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-5 ctn text-center mb-5 mx-auto">
-                    <p class="h4 mt-5">si vous voulez vous inscrire c'est ici</p>
+                    <p class="h4 mt-5">Si vous voulez vous inscrire c'est ici</p>
                     <a href="register.php" class=" btn btn-secondary m-4">Inscription</a>
                 </div>
                 <div class="col-12 col-md-5 ctn text-center mb-5 mx-auto">
-                    <p class="h4 mt-5">si vous voulez vous connecter c'est ici</p>
+                    <p class="h4 mt-5">Si vous voulez vous connecter c'est ici</p>
                     <a href="login.php" class=" btn btn-secondary m-4">Connexion</a>
                 </div>
             </div>

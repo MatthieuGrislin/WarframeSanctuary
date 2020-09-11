@@ -2,18 +2,17 @@
 include '../config.php';
 include '../models/database.php';
 include_once '../models/usersModel.php';
-include '../lang/FR_FR.php';
 include_once '../controllers/registerController.php';
 include 'header.php'
 ?>
 <h1 class="m-5 text-center">Inscription</h1>
     <?php if(isset($messageSuccess)){ ?>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success text-center" role="alert">
           <?= $messageSuccess ?>
         </div>
     <?php } ?>
     <?php if(isset($messageFail)){ ?>
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger text-center" role="alert">
           <?= $messageFail ?>
         </div>
     <?php } ?>

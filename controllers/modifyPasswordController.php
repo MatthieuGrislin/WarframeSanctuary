@@ -7,16 +7,12 @@ if(isset($_POST['modifyPassword'])){
      * Cette variable sert à savoir si les vérifications du mot de passe et de sa confirmation se sont déroulés avec succès
      */
     $isPasswordOk = true;
-    if(empty($_POST['oldPassword'])){
-        $formErrors['oldPassword'] = PASSWORD_ERROR_EMPTY;
-        $isPasswordOk = false;
-    }
     if(empty($_POST['newPassword'])){
-        $formErrors['newPassword'] = NEW_PASSWORD_ERROR;
+        $formErrors['newPassword'] = 'Le nouveau mot de passe n\'est pas valide';
         $isPasswordOk = false;
     }
     if(empty($_POST['confirmNewPassword'])){
-        $formErrors['confirmNewPassword'] = CONFIRM_NEW_PASSWORD_ERROR;
+        $formErrors['confirmNewPassword'] = 'La confirmation du mot de passe n\'est pas valide';
         $isPasswordOk = false;
     }
     //Si les vérifications des mots de passe sont ok
@@ -27,8 +23,9 @@ if(isset($_POST['modifyPassword'])){
             //On hash le mot de passe avec la méthode de PHP
             $user->password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
             $user->changeUserPassword();
+            $messageSuccess = 'Votre mot de passe à bien été modifié.';
         }else{
-            $formErrors['password'] = $formErrors['confirmNewPassword'] = PASSWORD_ERROR_NOTEQUAL;
+            $formErrors['password'] = $formErrors['confirmNewPassword'] = 'Les mots de passe ne sont pas identiques';
         }
     }
 }

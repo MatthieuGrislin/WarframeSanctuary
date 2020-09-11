@@ -3,7 +3,6 @@ session_start();
 include '../config.php';
 include '../models/database.php';
 include_once '../models/usersModel.php';
-include '../lang/FR_FR.php';
 include_once '../controllers/loginController.php';
 include 'header.php';
 ?>

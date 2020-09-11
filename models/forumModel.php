@@ -3,7 +3,7 @@
 // private: accessible uniquement dans la class.
 // protected: accessible dans la class et les enfants.
 // public: dispo dans class, enfant et dans les instances.
-class forumSubCat
+class forum
 {
     public $id = 0;
     public $name = '';

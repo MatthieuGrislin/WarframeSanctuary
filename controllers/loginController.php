@@ -10,14 +10,14 @@ if(isset($_POST['login'])){
             //J'hydrate mon instance d'objet user
             $user->mail = htmlspecialchars($_POST['mail']);
         }else{
-            $formErrors['mail'] = MAIL_ERROR_WRONG;
+            $formErrors['mail'] = 'L\'adresse mail doit être de la bonne forme.';
         }
     }else{
-        $formErrors['mail'] = MAIL_ERROR_EMPTY;
+        $formErrors['mail'] = 'L\'adresse mail ne doit pas être vide.';
     }
 
     if(empty($_POST['password'])){        
-        $formErrors['password'] = PASSWORD_ERROR_EMPTY;
+        $formErrors['password'] = 'Le mot de passe ne doit pas être vide.';
     }
     
     if(empty($formErrors)){
@@ -35,7 +35,7 @@ if(isset($_POST['login'])){
             header('location:../index.php');
             exit();
        }else{
-           $formErrors['password'] = $formErrors['mail'] = LOGIN_ERROR;
+           $formErrors['password'] = $formErrors['mail'] = 'Le mot de passe et/ou l\'adresse mail est incorrecte';
        }
     }
 }

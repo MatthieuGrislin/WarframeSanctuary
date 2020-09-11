@@ -11,5 +11,5 @@ if(isset($_POST['deleteProfil'])){
     header('location: ../index.php');
     exit();
 }else{
-    $messageError = DELETE_USER_ERROR;
+    $messageError = 'Votre compte n\'a pas pu être supprimé';
 }
