@@ -6,6 +6,7 @@
 class forum
 {
     public $id = 0;
+    public $idSubCat = 0;
     public $name = '';
     public $id_m3s4pL0v3_forumCategories = 0;
     private $db = NULL;
@@ -24,10 +25,48 @@ class forum
         FROM 
             `m3s4L0v3_forumSubCategories` AS `subcat`
         WHERE
-            `subcat`.`id` = :id
+            `subcat`.`id` = :idSubCat
         ');
-        $nameQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $nameQuery->bindValue(':idSubCat', $this->idSubCat, PDO::PARAM_INT);
         $nameQuery->execute();
         return $nameQuery->fetch(PDO::FETCH_OBJ);
+    }
+    /**
+     * Méthode permettant d'enregistrer une question
+     */
+    public function recordQuestion(){
+        $question = $this->db->prepare(
+            'INSERT INTO `m3s4L0v3_forumQuestions`
+            (`postDate`, `title`, `content`, `id_m3s4L0v3_users`, `id_m3s4L0v3_forumSubCategories`)
+            VALUES (:postDate, :title, :content, :users, :subcatName)
+            
+        ');
+        $question->bindValue(':postDate',$this->postDate,PDO::PARAM_STR);
+        $question->bindValue(':title',$this->title,PDO::PARAM_STR);
+        $question->bindValue(':content',$this->content,PDO::PARAM_STR);
+        $question->bindValue(':users',$this->id_m3s4L0v3_users,PDO::PARAM_INT);
+        $question->bindValue(':subcatName',$this->id_m3s4L0v3_forumSubCategories,PDO::PARAM_INT);
+        return $question->execute();
+    }
+
+    /**
+     * Méthode permettant d'afficher les questions
+     */
+    public function getQuestions(){
+        $getQuestions = $this->db->prepare(
+            'SELECT
+                `title`
+                , `content`
+                , `postDate`
+                , `id_m3s4L0v3_users`
+                , `id_m3s4L0v3_forumSubCategories`
+            FROM 
+                `m3s4L0v3_forumQuestions`
+            WHERE
+                `id_m3s4L0v3_forumSubCategories` = :idSubCat
+        ');
+        $getQuestions->bindValue(':idSubCat',$this->idSubCat,PDO::PARAM_INT);
+        $getQuestions->execute();
+        return $getQuestions->fetchAll(PDO::FETCH_OBJ);
     }
 }

@@ -1,4 +1,4 @@
 <?php
-$forum = new forum();
-$forum->id = htmlspecialchars($_GET['id']);
-$showForumCatAndSubcat = $forum->getSubcatNameById();
+//$forum = new forum();
+//$forum->id = htmlspecialchars($_GET['id']);
+//$showForumCatAndSubcat = $forum->getSubcatNameById();

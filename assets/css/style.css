@@ -70,14 +70,14 @@ hr{
     background-color: white;
     width: 75%;
 }
-.forumCategory{
-    background-color: black;
-    border-radius: 25px;
-    width: 50%;
+.forumMenu{
+    list-style: none;
 }
-.bgAForum{
-    background-color: rgb(46,46,46,1);
-    padding: 5px;
+.forumMenu li a:hover{
+    color: black;
+}
+.labelFormInsertFoQuestion{
+    ;
 }
 /* Small screen */
 @media screen and (max-width: 768px){

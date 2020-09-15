@@ -9,6 +9,8 @@ include 'tables.php';
         <title>Warframe Sanctuary</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
         <link rel="stylesheet" type="text/css" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? '' : '../' ?>assets/css/style.css" media="screen" />
+        <script src="https://cdn.tiny.cloud/1/2u0cxihx275z0kcj4yuu0s2uqtcou6r2t99a3j8j5wc5bk6l/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>tinymce.init({ selector: '#contentarea'});</script>
     </head>
     <body>
         <!-- Logo -->
@@ -63,7 +65,7 @@ include 'tables.php';
                         </li>
                     <!-- Début liste Archwings et Véhicules -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="archwingVehicule" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Archwings
                             </a>
                             <ul class="dropdown-menu bg-dark">
