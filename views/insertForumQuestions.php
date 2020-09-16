@@ -5,10 +5,21 @@ include '../config.php';
 include '../models/database.php';
 include 'tables.php';
 include '../models/forumModel.php';
+include '../controllers/insertForumQuestionsController.php';
 include 'header.php'; 
 ?>
     
     <?php if(isset($_SESSION['profile'])){ ?>
+        <?php if(isset($messageSuccess)){ ?>
+        <div class="alert alert-success text-center mt-4" role="alert">
+          <?= $messageSuccess ?>
+        </div>
+    <?php } ?>
+    <?php if(isset($messageFail)){ ?>
+        <div class="alert alert-danger text-center" role="alert">
+          <?= $messageFail ?>
+        </div>
+    <?php } ?>
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12 col-md-3">
@@ -78,6 +89,9 @@ include 'header.php';
                             <div class="col-10 mx-auto mt-4 mb-5">
                                 <textarea name="contentarea" id="contentarea"></textarea>
                             </div>
+                        </div>
+                        <div class="my-4 text-center">
+                            <button type="submit" name="validate" class="btn btn-secondary">valider</button>
                         </div>
                     </form>
                 </div>

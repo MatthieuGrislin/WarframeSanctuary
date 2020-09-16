@@ -5,11 +5,11 @@ include '../config.php';
 include '../models/database.php';
 include 'tables.php';
 include '../models/forumModel.php';
-include '../controllers/forumQuestionsController.php';
+include '../controllers/usersPostController.php';
 include 'header.php'; 
 ?>  
     <?php if(isset($_SESSION['profile'])){ ?>
-    <h1 class="text-center mt-5"><?= $subCategoriesName->subCatName ?></h1>
+    <h1 class="text-center mt-5">Vos Posts</h1>
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12 col-md-3">
@@ -69,10 +69,10 @@ include 'header.php';
             </div>
             <div class="col-12 col-md-6">
                 <div class="ctn my-5">
-                    <?php foreach($showQuestions as $questions) { ?>
+                    <?php foreach($showPost as $items) { ?>
                         <div class="mb-3 text-center">
-                            <p><?= $questions->title ?></p>
-                            <p><?= $questions->content ?></p>
+                            <p><?= $items->title ?></p>
+                            <p><?= htmlspecialchars_decode($items->content) ?></p>
                         </div>
                     <?php } ?>
                 </div>
@@ -86,7 +86,7 @@ include 'header.php';
                             </a>
                         </li>
                         <li>
-                            <a class="btn btn-secondary mr-5 my-5 py-3 px-5" href="usersPost.php?id=<?= isset($_SESSION['profile']['id']) ? $_SESSION['profile']['id'] : '' ?>" role="button">
+                            <a class="btn btn-secondary mr-5 my-5 py-3 px-5" href="usersPost.php?id=<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" role="button">
                                 Vos Post
                             </a>
                         </li>
