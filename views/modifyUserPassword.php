@@ -43,7 +43,7 @@ include_once 'header.php';
                             <?php } ?> 
                     </div>
                     <div>
-                        <label for="confirmNewPassword">Confirmation du nouveau mot de passe actuel :</label>
+                        <label for="confirmNewPassword">Confirmation du nouveau mot de passe :</label>
                         <input type="password" class="form-control " id="confirmNewPassword" aria-describedby="passwordHelp" name="confirmNewPassword" />
                         <?php if(isset($formErrors['confirmNewPassword'])){ ?>
                             <p class="text-danger"><?= $formErrors['confirmNewPassword'] ?></p>
