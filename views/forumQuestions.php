@@ -5,6 +5,7 @@ include '../config.php';
 include '../models/database.php';
 include 'tables.php';
 include '../models/forumModel.php';
+include '../models/forumQuestionModel.php';
 include '../controllers/forumQuestionsController.php';
 include 'header.php'; 
 ?>  
@@ -68,11 +69,10 @@ include 'header.php';
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="ctn my-5">
+                <div class=" my-5">
                     <?php foreach($showQuestions as $questions) { ?>
-                        <div class="mb-3 text-center">
-                            <p><?= $questions->title ?></p>
-                            <p><?= $questions->content ?></p>
+                        <div class="mb-3 text-center ctn p-4">
+                            <a href="questionForum.php?id=<?= $questions->id ?>" class="text-white"><?= $questions->title ?></a>
                         </div>
                     <?php } ?>
                 </div>
@@ -86,9 +86,13 @@ include 'header.php';
                             </a>
                         </li>
                         <li>
-                            <a class="btn btn-secondary mr-5 my-5 py-3 px-5" href="usersPost.php?id=<?= isset($_SESSION['profile']['id']) ? $_SESSION['profile']['id'] : '' ?>" role="button">
-                                Vos Post
-                            </a>
+                            <button class="btn btn-secondary mr-5 my-5 py-3 px-5 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Vos Posts
+                            </button>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="usersPostQuestion.php?id=<?= isset($_SESSION['profile']['id']) ? $_SESSION['profile']['id'] : '' ?>">Vos Questions</a>
+                                <a class="dropdown-item" href="usersPostResponse.php?id=<?= isset($_SESSION['profile']['id']) ? $_SESSION['profile']['id'] : '' ?>">Vos réponses</a>
+                            </div>
                         </li>
                     </ul>
                 </div>

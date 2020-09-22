@@ -11,7 +11,7 @@ include 'header.php';
     <h1 class="text-center mt-5">Forum</h1>
     <div class="container">
         <div class="row text-center">
-            <div class="col-3">
+            <div class="col-12 col-md-3">
                 <div class="my-5 ctn">
                     <p class="h4 pt-5 pb-3"><u>Navigation du Forum</u></p>
                     <ul class="forumMenu m-auto">
@@ -22,13 +22,13 @@ include 'header.php';
                             </a>
                             <ul class="dropdown-menu bg-dark">
                                 <!-- Appelle le tableau associatif -->
-                                    <?php foreach ($news as $newsTitle => $newsPage){
-                                        ?><li class="nav-item dropdown-submenu">
-                                            <a class="nav-link" href="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/') . $newsPage ?>" role="button">
-                                                <?= $newsTitle ?>
-                                            </a>
-                                        </li>
-                                    <?php } ?>
+                                <?php foreach ($news as $newsTitle => $newsPage){
+                                    ?><li class="nav-item dropdown-submenu">
+                                        <a class="nav-link" href="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/') . $newsPage ?>" role="button">
+                                            <?= $newsTitle ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <!-- Communautés -->
@@ -38,13 +38,13 @@ include 'header.php';
                             </a>
                             <ul class="dropdown-menu bg-dark">
                                 <!-- Appelle le tableau associatif -->
-                                    <?php foreach ($communities as $communitiesTitle => $communitiesPage){
-                                        ?><li class="nav-item dropdown-submenu">
-                                            <a class="nav-link" href="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/') . $communitiesPage ?>" role="button">
-                                                <?= $communitiesTitle ?>
-                                            </a>
-                                        </li>
-                                    <?php } ?>
+                                <?php foreach ($communities as $communitiesTitle => $communitiesPage){
+                                    ?><li class="nav-item dropdown-submenu">
+                                        <a class="nav-link" href="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/') . $communitiesPage ?>" role="button">
+                                            <?= $communitiesTitle ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <!-- Retours et Bugs -->
@@ -54,19 +54,19 @@ include 'header.php';
                             </a>
                             <ul class="dropdown-menu bg-dark">
                                 <!-- Appelle le tableau associatif -->
-                                    <?php foreach ($returnAndBug as $returnAndBugTitle => $returnAndBugPage){
-                                        ?><li class="nav-item dropdown-submenu">
-                                            <a class="nav-link" href="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/') . $returnAndBugPage ?>" role="button">
-                                                <?= $returnAndBugTitle ?>
-                                            </a>
-                                        </li>
-                                    <?php } ?>
+                                <?php foreach ($returnAndBug as $returnAndBugTitle => $returnAndBugPage){
+                                    ?><li class="nav-item dropdown-submenu">
+                                        <a class="nav-link" href="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/') . $returnAndBugPage ?>" role="button">
+                                            <?= $returnAndBugTitle ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-12 col-md-8">
                 <div class="ctn my-5">
                     <p class="h2 my-5">Régles du Forum</p>
                     <p></p>

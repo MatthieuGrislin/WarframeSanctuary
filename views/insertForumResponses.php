@@ -4,12 +4,22 @@ session_start();
 include '../config.php'; 
 include '../models/database.php';
 include 'tables.php';
-include '../models/forumModel.php';
-include '../controllers/usersPostController.php';
+include '../models/forumResponseModel.php';
+include '../controllers/insertForumResponsesController.php';
 include 'header.php'; 
-?>  
+?>
+    
     <?php if(isset($_SESSION['profile'])){ ?>
-    <h1 class="text-center mt-5">Vos Posts</h1>
+        <?php if(isset($messageSuccess)){ ?>
+        <div class="alert alert-success text-center mt-4" role="alert">
+          <?= $messageSuccess ?>
+        </div>
+    <?php } ?>
+    <?php if(isset($messageFail)){ ?>
+        <div class="alert alert-danger text-center" role="alert">
+          <?= $messageFail ?>
+        </div>
+    <?php } ?>
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12 col-md-3">
@@ -67,30 +77,19 @@ include 'header.php';
                     </ul>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-9">
                 <div class="ctn my-5">
-                    <?php foreach($showPost as $items) { ?>
-                        <div class="mb-3 text-center">
-                            <p><?= $items->title ?></p>
-                            <p><?= htmlspecialchars_decode($items->content) ?></p>
+                    <form action="#" method="POST">
+                        <div class="form-group mt-5 row">
+                            <label for="contentarea" class="col-12 h3">Réponse :</label>
+                            <div class="col-10 mx-auto mt-4 mb-5">
+                                <textarea name="contentarea" id="contentarea"></textarea>
+                            </div>
                         </div>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="col-12 col-md-3">
-                <div class="ctn my-5">
-                    <ul class="forumMenu m-auto">
-                        <li>
-                            <a class="btn btn-secondary mr-5 mt-5 py-3 px-5" href="insertForumQuestions.php?idSubCat=<?= isset($_GET['idSubCat']) ? $_GET['idSubCat'] : '' ?>" role="button">
-                                Poser votre question
-                            </a>
-                        </li>
-                        <li>
-                            <a class="btn btn-secondary mr-5 my-5 py-3 px-5" href="usersPost.php?id=<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" role="button">
-                                Vos Post
-                            </a>
-                        </li>
-                    </ul>
+                        <div class="my-4 text-center">
+                            <button type="submit" name="validate" class="btn btn-secondary">valider</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -4,23 +4,13 @@ session_start();
 include '../config.php'; 
 include '../models/database.php';
 include 'tables.php';
-include '../models/forumModel.php';
 include '../models/forumQuestionModel.php';
-include '../controllers/insertForumQuestionsController.php';
+include '../controllers/usersPostQuestionController.php';
+include 'deleteMyPost.php';
 include 'header.php'; 
-?>
-    
+?>  
     <?php if(isset($_SESSION['profile'])){ ?>
-        <?php if(isset($messageSuccess)){ ?>
-        <div class="alert alert-success text-center mt-4" role="alert">
-          <?= $messageSuccess ?>
-        </div>
-    <?php } ?>
-    <?php if(isset($messageFail)){ ?>
-        <div class="alert alert-danger text-center" role="alert">
-          <?= $messageFail ?>
-        </div>
-    <?php } ?>
+    <h1 class="text-center mt-5">Vos Posts</h1>
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12 col-md-3">
@@ -79,22 +69,27 @@ include 'header.php';
                 </div>
             </div>
             <div class="col-12 col-md-9">
-                <div class="ctn my-5">
-                    <form action="#" method="POST">
-                        <div class="form-group mt-5 row">
-                            <label for="title" class="col-12 h3">Titre :</label>
-                            <input type="text" class="form-control col-10 mx-auto mt-3 mb-4" id="title" name="title" />
-                        </div>
-                        <div class="form-group mt-5 row">
-                            <label for="contentarea" class="col-12 h3">Question :</label>
-                            <div class="col-10 mx-auto mt-4 mb-5">
-                                <textarea name="contentarea" id="contentarea"></textarea>
+                <div class="my-5">
+                    <?php foreach($showPost as $items) { ?>
+                        <div class="ctn my-4">
+                            <div class="text-center p-4">
+                                <p class="h2">Titre de la question :</p>
+                                <p><?= $items->title ?></p>
+                                <hr class="my-4">
+                                <p class="h2">Détails de la question :</p>
+                                <p><?= htmlspecialchars_decode($items->content) ?></p>
+                            </div>
+                            <hr class="my-4">
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <a href="yourPost.php?id=<?= $items->id ?>" class="btn btn-secondary">Modifier</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="yourPost.php?id=<?= $questions ?>" class="btn btn-danger" data-toggle="modal" data-target="#modalsupPost">Supprimer</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="my-4 text-center">
-                            <button type="submit" name="validate" class="btn btn-secondary">valider</button>
-                        </div>
-                    </form>
+                    <?php } ?>
                 </div>
             </div>
         </div>
