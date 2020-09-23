@@ -82,7 +82,7 @@ include 'header.php';
                                     <a href="yourPostResponse.php?responseId=<?= $items->id ?>" class="btn btn-secondary">Modifier</a>
                                 </div>
                                 <div class="col-6">
-                                <button onclick="deletePost(<?= $items->id ?>)" class="btn btn-danger" data-toggle="modal" data-target="#modalsupPost">Supprimer</a>
+                                    <button onclick="deletePost(<?= $items->id ?>)" class="btn btn-danger" data-toggle="modal" data-target="#modalsupPost">Supprimer</a>
                                 </div>
                             </div>
                         </div>

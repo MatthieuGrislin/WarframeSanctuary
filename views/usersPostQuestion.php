@@ -85,7 +85,7 @@ include 'header.php';
                                     <a href="yourPostQuestion.php?questionId=<?= $items->id ?>" class="btn btn-secondary">Modifier</a>
                                 </div>
                                 <div class="col-6">
-                                    <button onclick="deletePost(<?= $items->id ?>)" class="btn btn-danger" data-toggle="modal" data-target="#modalsupPost">Supprimer</a>
+                                    <button onclick="deletePostQuestion(<?= $items->id ?>)" class="btn btn-danger" data-toggle="modal" data-target="#modalsupPost">Supprimer</a>
                                 </div>
                             </div>
                         </div>

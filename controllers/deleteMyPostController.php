@@ -7,8 +7,10 @@ if(isset($_POST['deletePost'])){
         // Méthode permettant la suppression d'une question
         $forumQuestion->deleteUserQuestion();
         //Et on le redirige vers ses posts
-        header('location: usersPostQuestion.php?id=' . $_SESSION['profile']['id']);
-        exit();
+        //header('location: usersPostQuestion.php?id=' . $_SESSION['profile']['id']);
+        //exit();
+var_dump($forumQuestion);
+
     }else{
         $messageError = 'Votre post n\'a pas pu être supprimé';
     }

@@ -66,7 +66,7 @@ function checkUnavailability(input){
 
 // Fenêtre modal de suppression de post
 
-function deletePost(id){
+function deletePostQuestion(id){
     document.getElementById('deleteQuestionId').value = id;
 }
 
