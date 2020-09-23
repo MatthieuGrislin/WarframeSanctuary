@@ -63,3 +63,13 @@ function checkUnavailability(input){
   //Les données envoyées en POST. Elles sont séparées par un &
   request.send('fieldValue=' + input.value + '&fieldName=' + input.name);
 }
+
+// Fenêtre modal de suppression de post
+
+function deletePost(id){
+    document.getElementById('deleteQuestionId').value = id;
+}
+
+function deletePost(id){
+    document.getElementById('deleteResponseId').value = id;
+}

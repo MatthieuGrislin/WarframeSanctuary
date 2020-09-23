@@ -51,4 +51,55 @@ class forumResponses
         $getResponse->execute();
         return $getResponse->fetchAll(PDO::FETCH_OBJ);
     }
+
+    /**
+     * Méthode permettant d'afficher les réponses lié à une question
+     */
+    public function getResponseByUsersId(){
+        $getResponse = $this->db->prepare(
+            'SELECT
+                `id`
+                , `content`
+                , `postDate`
+            FROM 
+                `m3s4L0v3_forumResponses`
+            WHERE
+                `id_m3s4L0v3_users` = :id
+        ');
+        $getResponse->bindValue(':id',$this->id_m3s4L0v3_users,PDO::PARAM_INT);
+        $getResponse->execute();
+        return $getResponse->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    /**
+     * Méthode permettant de changer le contenu d'une réponse
+     * 
+     */
+    public function updateResponse(){
+        $updateResponse = $this->db->prepare(
+            'UPDATE 
+                `m3s4L0v3_forumResponses`
+            SET
+                `content` = :content
+            WHERE    
+                `id` = :id
+            ');
+        $updateResponse->bindValue(':content', $this->content, PDO::PARAM_STR);
+        $updateResponse->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $updateResponse->execute();
+    }
+
+    /**
+     * Méthode permettant de supprimer une réponse
+     */
+    public function deleteUserResponse(){
+        $deleteQuestion = $this->db->prepare(
+            'DELETE FROM 
+                `m3s4L0v3_forumResponses`
+            WHERE 
+                `id` = :id
+        ');
+        $deleteQuestion->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $deleteQuestion->execute();    
+    }
 }

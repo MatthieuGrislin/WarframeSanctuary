@@ -4,8 +4,8 @@ session_start();
 include '../config.php'; 
 include '../models/database.php';
 include 'tables.php';
-include '../models/forumResponseModel.php';
-include '../controllers/insertForumResponsesController.php';
+include '../models/forumQuestionModel.php';
+include '../controllers/yourPostQuestionController.php';
 include 'header.php'; 
 ?>
     
@@ -81,13 +81,13 @@ include 'header.php';
                 <div class="ctn my-5">
                     <form action="#" method="POST">
                         <div class="form-group mt-5 row">
-                            <label for="contentarea" class="col-12 h3">Réponse :</label>
+                            <label for="contentarea" class="col-12 h3">Modifier votre question :</label>
                             <div class="col-10 mx-auto mt-4 mb-5">
                                 <textarea name="contentarea" id="contentarea"></textarea>
                             </div>
                         </div>
                         <div class="my-4 text-center">
-                            <button type="submit" name="validate" class="btn btn-secondary">valider</button>
+                            <button type="submit" name="updateQuestion" class="btn btn-secondary px-4">Valider</button>
                         </div>
                     </form>
                 </div>

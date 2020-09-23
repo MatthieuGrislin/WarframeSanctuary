@@ -4,9 +4,9 @@ session_start();
 include '../config.php'; 
 include '../models/database.php';
 include 'tables.php';
-include '../models/forumQuestionModel.php';
-include '../controllers/usersPostQuestionController.php';
-include 'deleteMyPost.php';
+include '../models/forumResponseModel.php';
+include '../controllers/usersPostResponseController.php';
+include 'deleteMyResponse.php';
 include 'header.php'; 
 ?>  
     <?php if(isset($_SESSION['profile'])){ ?>
@@ -73,19 +73,16 @@ include 'header.php';
                     <?php foreach($showPost as $items) { ?>
                         <div class="ctn my-4">
                             <div class="text-center p-4">
-                                <p class="h2">Titre de la question :</p>
-                                <p><?= $items->title ?></p>
-                                <hr class="my-4">
-                                <p class="h2">Détails de la question :</p>
+                                <p class="h2">Détails de la réponse :</p>
                                 <p><?= htmlspecialchars_decode($items->content) ?></p>
                             </div>
                             <hr class="my-4">
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <a href="yourPostQuestion.php?questionId=<?= $items->id ?>" class="btn btn-secondary">Modifier</a>
+                                    <a href="yourPostResponse.php?responseId=<?= $items->id ?>" class="btn btn-secondary">Modifier</a>
                                 </div>
                                 <div class="col-6">
-                                    <button onclick="deletePost(<?= $items->id ?>)" class="btn btn-danger" data-toggle="modal" data-target="#modalsupPost">Supprimer</a>
+                                <button onclick="deletePost(<?= $items->id ?>)" class="btn btn-danger" data-toggle="modal" data-target="#modalsupPost">Supprimer</a>
                                 </div>
                             </div>
                         </div>

@@ -97,10 +97,29 @@ class forumQuestion
         $getQuestions->execute();
         return $getQuestions->fetch(PDO::FETCH_OBJ);
     }
+
+    /**
+     * Méthode permettant de changer le contenu d'une question 
+     * 
+     */
+    public function updateQuestion(){
+        $updateQuestion = $this->db->prepare(
+            'UPDATE 
+                `m3s4L0v3_forumQuestions`
+            SET
+                `content` = :content
+            WHERE    
+                `id` = :id
+            ');
+        $updateQuestion->bindValue(':content', $this->content, PDO::PARAM_STR);
+        $updateQuestion->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $updateQuestion->execute();
+    }
+
     /**
      * Méthode permettant de supprimer une question
      */
-    public function deleteUser(){
+    public function deleteUserQuestion(){
         $deleteQuestion = $this->db->prepare(
             'DELETE FROM 
                 `m3s4L0v3_forumQuestions`

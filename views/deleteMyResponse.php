@@ -1,5 +1,5 @@
 <?php 
-include '../controllers/deleteMyPostController.php'; ?>
+include '../controllers/deleteMyResponseController.php'; ?>
 <div class="modal fade" id="modalsupPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -13,7 +13,7 @@ include '../controllers/deleteMyPostController.php'; ?>
                     </div>
                     <form action="" method="POST">
                         <div class="col-6 pr-5">
-                            <input type="hidden" name="deleteQuestionId" id="deleteQuestionId" />
+                            <input type="hidden" name="deleteResponseId" id="deleteResponseId" />
                             <input type="submit" name="deletePost" class="btn btn-danger p-3 px-5" value="Oui" />
                         </div>
                     </form>
